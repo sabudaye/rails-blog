@@ -11,6 +11,9 @@
 %p
   %b Tags:
   = join_tags(@post)
+%p
+  %b State:
+  = @post.state
 %h2 Comments
 = render @post.comments
 %h2 Add a comment:

@@ -14,6 +14,8 @@
     = post_form.input :title, as: :string, label: "Title: "
   .field
     = post_form.input :content, as: :string, label: "Content: "
+  .field
+    = post_form.input :state_event, :as => :state_event
   %h2 Tags
   = render :partial => 'tags/form', |
     :locals => {:form => post_form} |

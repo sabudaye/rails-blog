@@ -4,6 +4,7 @@
     %th Name
     %th Title
     %th Content
+    %th State
     %th
     %th
     %th
@@ -12,6 +13,7 @@
       %td= post.name
       %td= post.title
       %td= post.content
+      %td= post.state
       %td= link_to 'Show', post
       %td= link_to 'Edit', edit_post_path(post)
       %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }
