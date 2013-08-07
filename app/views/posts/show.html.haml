@@ -1,23 +1,24 @@
-%p#notice= notice
 %p
-  %b Name:
-  = @post.name
+  %h1
+    = @post.name
 %p
-  %b Title:
-  = @post.title
-%p
-  %b Content:
-  = @post.content
-%p
-  %b Tags:
-  = join_tags(@post)
-%p
-  %b State:
-  = @post.state
-%h2 Comments
-= render @post.comments
-%h2 Add a comment:
-= render "comments/form"
-= link_to 'Edit Post', edit_post_path(@post)
-|
-\#{link_to 'Back to Posts', posts_path} |
+  %h2
+    = @post.title
+%p= @post.content
+
+%section#post-tags 
+  %p
+    %h4 
+      Tags:
+    = join_tags(@post)
+%section#post-comments 
+  %legend
+    Comments
+  = render @post.comments
+  %legend
+    Add a comment:
+  = render "comments/form"
+
+  = link_to 'Edit Post', edit_post_path(@post)
+  |
+  \#{link_to 'Back to Posts', posts_path} |

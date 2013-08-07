@@ -42,4 +42,5 @@ gem 'therubyracer'
 gem 'simple_form'
 gem 'html2haml'
 gem 'state_machine'
+gem 'twitter-bootstrap-rails'
 gem 'coveralls', require: false

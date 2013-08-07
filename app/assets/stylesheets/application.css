@@ -8,6 +8,27 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
+      *= require_self
  *= require_tree .
  */
+
+
+#post-comments {
+  background: #F5F5F5;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+#post-tags {
+  font-style: oblique;
+  word-spacing: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.container {
+  width: 600px;
+  margin: auto;
+}

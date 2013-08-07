@@ -1,9 +1,12 @@
-!!!
 %html
   %head
-    %title Blog
+    %title
+      Blog
+
     = stylesheet_link_tag "application"
-    = javascript_include_tag "application"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
-  %body{:style => "background: #EEEEEE;"}
+
+%body 
+  .container
     = yield

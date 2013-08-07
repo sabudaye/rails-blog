@@ -5,7 +5,7 @@ one:
   title: MyString
   content: MyText
   state: public
-
+  
 two:
   name: MyString
   title: MyString

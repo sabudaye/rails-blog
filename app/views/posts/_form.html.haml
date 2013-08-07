@@ -1,5 +1,6 @@
 - @post.tags.build
-= simple_form_for @post do |post_form|
+= simple_form_for @post,
+  :html => { :class => 'form-horizontal' } do |post_form|
   - if @post.errors.any?
     #errorExplanation
       %h2
@@ -20,4 +21,4 @@
   = render :partial => 'tags/form', |
     :locals => {:form => post_form} |
   .actions
-    = post_form.button :submit
+    = post_form.button :submit, :class => 'btn-primary'

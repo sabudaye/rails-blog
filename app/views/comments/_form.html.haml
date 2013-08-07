@@ -1,9 +1,10 @@
-= simple_form_for([@post, @post.comments.build]) do |f|
-  .field
-    = f.input :commenter, as: :string, label: "Commenter"
-    %br/
-  .field
-    = f.input :body, as: :string, label: "Body"
-    %br/
-  .actions
-    = f.button :submit
+= simple_form_for [@post, @post.comments.build], :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    =f.label :commenter, :class => 'control-label' do
+      .controls
+        = f.input :commenter
+  .control-group
+    =f.label :body, :class => 'control-label' do
+      .controls
+        = f.input :body, :as => :text, :input_html => { :rows => 5 }
+        = f.button :submit, :class => 'btn btn-default'
