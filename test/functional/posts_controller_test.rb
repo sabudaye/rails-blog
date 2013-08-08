@@ -4,12 +4,17 @@ class PostsControllerTest < ActionController::TestCase
   setup do
     @request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials('dhh', 'secret')
     @post = posts(:one)
+    @post2 = posts(:two)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:posts)
+  end
+
+  test "should get index json" do
+    get :index, format: :json
+    assert_response :success
   end
 
   test "should get new" do
@@ -17,14 +22,12 @@ class PostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  # test "should create post" do
-  #   assert_difference('Post.count') do
-  #     post :create, post: { content: "content", name: "name",
-  #                           title: 'title', state: "public" }
-  #   end
-
-  #   assert_redirected_to post_path(assigns(:post))
-  # end
+  test "should create post" do
+    post :create, post: { content: @post.content, name: @post.name,
+                          title: @post.title, state_event: @post.state_event }
+    assert_response :redirect
+    assert_equal 'MyString', @post.title
+  end
 
   test "should show post" do
     get :show, id: @post
@@ -36,17 +39,18 @@ class PostsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  # test "should update post" do
-  #   put :update, id: @post, post: { content: @post.content, name: @post.name,
-  #                                   title: @post.title, state: @post.state }
-  #   assert_redirected_to post_path(assigns(:post))
-  # end
+  test "should update post" do
+    put :update, id: @post, post: { content: @post2.content, name: @post2.name,
+                                    title: @post2.title, state_event: @post2.state_event }
+    new_post = Post.find(@post.id)                        
+    assert_response :redirect
+    assert_equal 'MyString2', new_post.title
+  end
 
   test "should destroy post" do
-    assert_difference('Post.count', -1) do
-      delete :destroy, id: @post
-    end
+    delete :destroy, id: @post
 
-    assert_redirected_to posts_path
+    assert !Post.exists?(@post)
+    assert_response :redirect
   end
 end

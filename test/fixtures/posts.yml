@@ -8,6 +8,6 @@ one:
   
 two:
   name: MyString
-  title: MyString
+  title: MyString2
   content: MyText
-  state: public
+  state: private
