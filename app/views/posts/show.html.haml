@@ -1,16 +1,7 @@
 %p
-  %h1
-    = @post.name
-%p
-  %h2
-    = @post.title
+  %h1= @post.title
 %p= @post.content
 
-%section#post-tags 
-  %p
-    %h4 
-      Tags:
-    = join_tags(@post)
 %section#post-comments 
   %legend
     Comments
@@ -19,6 +10,5 @@
     Add a comment:
   = render "comments/form"
 
-  = link_to 'Edit Post', edit_post_path(@post)
-  |
-  \#{link_to 'Back to Posts', posts_path} |
+  %p= link_to 'Edit Post', edit_post_path(@post)
+  %p= link_to 'Back to Posts', posts_path

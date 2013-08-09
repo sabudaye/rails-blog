@@ -23,8 +23,8 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should create post" do
-    post :create, post: { content: @post.content, name: @post.name,
-                          title: @post.title, state_event: @post.state_event }
+    post :create, post: { content: @post.content,
+      title: @post.title, state_event: @post.state_event }
     assert_response :redirect
     assert_equal 'MyString', @post.title
   end
@@ -40,8 +40,8 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should update post" do
-    put :update, id: @post, post: { content: @post2.content, name: @post2.name,
-                                    title: @post2.title, state_event: @post2.state_event }
+    put :update, id: @post, post: { content: @post2.content, 
+      title: @post2.title, state_event: @post2.state_event }
     new_post = Post.find(@post.id)                        
     assert_response :redirect
     assert_equal 'MyString2', new_post.title

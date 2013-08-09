@@ -1,24 +1,5 @@
-- @post.tags.build
-= simple_form_for @post,
-  :html => { :class => 'form-horizontal' } do |post_form|
-  - if @post.errors.any?
-    #errorExplanation
-      %h2
-        = pluralize(@post.errors.count, "error")
-        prohibited this post from being saved:
-      %ul
-        - @post.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = post_form.input :name, as: :string, label: "Name: "
-  .field
-    = post_form.input :title, as: :string, label: "Title: "
-  .field
-    = post_form.input :content, as: :string, label: "Content: "
-  .field
-    = post_form.input :state_event, :as => :state_event
-  %h2 Tags
-  = render :partial => 'tags/form', |
-    :locals => {:form => post_form} |
-  .actions
-    = post_form.button :submit, :class => 'btn-primary'
+= simple_form_for @post, :html => { :class => 'form-horizontal' } do |f|
+    = f.input :title, as: :string
+    = f.input :content, as: :text, :input_html => { :rows => 5 }
+    = f.input :state_event, :as => :state_event
+    = f.button :submit, :class => 'btn-primary'

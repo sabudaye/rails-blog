@@ -1,6 +1,4 @@
-= simple_fields_for :tags, :defaults => { :class => "field"  } do |tag_form|
-  .field
-    = tag_form.input :name, as: :string, label: 'Tag: '
-  - unless tag_form.object.nil? || tag_form.object.new_record?
-    .field
-      = tag_form.input :_destroy, as: :boolean, label: 'Remove: '
+= simple_fields_for :tags, :defaults => { :class => "field"  } do |f|
+  = f.input :name, as: :string, label: 'Tag: '
+  - unless f.object.nil? || f.object.new_record?
+    = f.input :_destroy, as: :boolean, label: 'Remove: '
