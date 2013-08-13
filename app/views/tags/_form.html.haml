@@ -1,4 +1,4 @@
 = simple_fields_for :tags, :defaults => { :class => "field"  } do |f|
   = f.input :name, as: :string, label: 'Tag: '
-  - unless f.object.nil? || f.object.new_record?
+  - if f.object.try :persisted?
     = f.input :_destroy, as: :boolean, label: 'Remove: '
