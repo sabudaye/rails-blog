@@ -4,19 +4,16 @@ class CommentsControllerTest < ActionController::TestCase
   setup do
     @request.env['HTTP_AUTHORIZATION'] = 
         ActionController::HttpAuthentication::Basic.encode_credentials('dhh', 'secret')
-    @post = posts(:one)
-    post :create, post_id: @post.id,
-      comment: { body: '1111', commenter: '222' }
-    @comment = @post.comments.find_by_body('1111')
+    @comment = create 'post/comment'
   end
 
   test "should create comment" do
     assert @comment
-    assert_response :redirect
+    assert_response :success
   end
 
   test "should destroy comment" do
-    delete :destroy, post_id: @post.id, id: @comment.id
-    assert !Comment.exists?(@comment)
+    delete :destroy, post_id: @comment.post_id, id: @comment.id
+    assert !Post::Comment.exists?(@comment)
   end
 end

@@ -44,4 +44,5 @@ gem 'simple_form'
 gem 'html2haml'
 gem 'state_machine'
 gem 'twitter-bootstrap-rails'
+gem "factory_girl_rails"
 gem 'coveralls', require: false
