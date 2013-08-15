@@ -1,4 +1,4 @@
-class Tag < ActiveRecord::Base
+class Post::Tag < ActiveRecord::Base
   belongs_to :post
   attr_accessible :name
 

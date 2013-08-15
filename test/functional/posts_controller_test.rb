@@ -3,8 +3,8 @@ require 'test_helper'
 class PostsControllerTest < ActionController::TestCase
   setup do
     @request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials('dhh', 'secret')
-    @post = posts(:one)
-    @post2 = posts(:two)
+    @post = create 'post'
+    @post2 = create 'post'
   end
 
   test "should get index" do
@@ -26,7 +26,7 @@ class PostsControllerTest < ActionController::TestCase
     post :create, post: { content: @post.content,
       title: @post.title, state_event: @post.state_event }
     assert_response :redirect
-    assert_equal 'MyString', @post.title
+    assert_equal 'MyString2', @post.title
   end
 
   test "should show post" do
