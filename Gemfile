@@ -45,4 +45,5 @@ gem 'html2haml'
 gem 'state_machine'
 gem 'twitter-bootstrap-rails'
 gem "factory_girl_rails"
+gem 'tconsole'
 gem 'coveralls', require: false

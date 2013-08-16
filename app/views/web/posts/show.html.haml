@@ -2,13 +2,13 @@
   %h1= @post.title
 %p= @post.content
 
-%section#post-comments 
+%section#post-comments
   %legend
     Comments
-  = render @post.comments
+  = render partial: "web/posts/comments/comment", collection: @post.comments
   %legend
     Add a comment:
-  = render "comments/form"
+  = render "web/posts/comments/form"
 
   %p= link_to 'Edit Post', edit_post_path(@post)
   %p= link_to 'Back to Posts', posts_path
