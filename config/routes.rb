@@ -1,10 +1,23 @@
 Blog::Application.routes.draw do
-  resources :posts do
-    resources :comments
-  end
-
 
   get "home/index"
+
+  scope module: :web do
+    resources :posts do
+      scope module: :posts do
+        resources :comments
+      end
+    end
+  end
+  namespace :api do
+    namespace :v1 do
+      resources :posts do
+        scope module: :posts do
+          resources :comments
+        end
+      end
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

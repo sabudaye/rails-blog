@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class CommentsControllerTest < ActionController::TestCase
+class Web::Posts::CommentsControllerTest < ActionController::TestCase
   setup do
-    @request.env['HTTP_AUTHORIZATION'] = 
+    @request.env['HTTP_AUTHORIZATION'] =
         ActionController::HttpAuthentication::Basic.encode_credentials('dhh', 'secret')
     @comment = create 'post/comment'
   end

@@ -1,18 +1,14 @@
-class PostsController < ApplicationController
- 
+class Web::PostsController < ApplicationController
   http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
- 
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }
     end
   end
-
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -22,12 +18,10 @@ class PostsController < ApplicationController
       format.json { render json: @post }
     end
   end
-
   # GET /posts/new
   # GET /posts/new.json
   def new
     @post = PostType.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }

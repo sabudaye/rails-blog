@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PostsControllerTest < ActionController::TestCase
+class Web::PostsControllerTest < ActionController::TestCase
   setup do
     @request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Basic.encode_credentials('dhh', 'secret')
     @post = create 'post'
@@ -40,9 +40,9 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should update post" do
-    put :update, id: @post, post: { content: @post2.content, 
+    put :update, id: @post, post: { content: @post2.content,
       title: @post2.title, state_event: @post2.state_event }
-    new_post = Post.find(@post.id)                        
+    new_post = Post.find(@post.id)
     assert_response :redirect
     assert_equal 'MyString2', new_post.title
   end
