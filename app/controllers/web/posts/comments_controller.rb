@@ -1,23 +1,26 @@
-class Web::Posts::CommentsController < Web::ApplicationController
+class Web::Posts::CommentsController < Web::Posts::ApplicationController
   http_basic_authenticate_with :name => "dhh", :password => "secret", :only => :destroy
 
-  #TODO add flashes
   def create
-    @post = Post.find(params[:post_id])
-    if @post.comments.create(params[:post_comment])
-      redirect_to post_path(@post)
+    @comment = PostCommentType.new(params[:post_comment])
+    @comment.post_id = params[:post_id]
+    if @comment.save
+      f(:success)
+      redirect_to post_path(resource_post)
     else
-      redirect_to post_path(@post)
+      f(:error)
+      redirect_to post_path(resource_post)
     end
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
+    @comment = resource_post.comments.find(params[:id])
     if @comment.destroy
-      redirect_to post_path(@post)
+      f(:success)
+      redirect_to post_path(resource_post)
     else
-      redirect_to post_path(@post)
+      f(:error)
+      redirect_to post_path(resource_post)
     end
   end
  end

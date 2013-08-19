@@ -15,5 +15,6 @@ class Web::Posts::CommentsControllerTest < ActionController::TestCase
   test "should destroy comment" do
     delete :destroy, post_id: @comment.post_id, id: @comment.id
     assert !Post::Comment.exists?(@comment)
+    assert_response :redirect
   end
 end

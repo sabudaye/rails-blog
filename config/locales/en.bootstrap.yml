@@ -16,18 +16,3 @@ en:
       save: "Save"
       new: "New"
       delete: "Delete"
-ru:
-  helpers:
-    actions: "Действия"
-    links:
-      back: "Назад"
-      cancel: "Отмена"
-      confirm: "Вы уверены?"
-      destroy: "Удалить"
-      new: "Новый"
-      edit: "Изменить"
-    titles:
-      edit: "Изменить"
-      save: "Сохранить"
-      new: "Новый"
-      delete: "Удалить"

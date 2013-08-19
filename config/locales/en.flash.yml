@@ -1,0 +1,18 @@
+en:
+  flash:
+    web:
+      posts:
+        create:
+          success: 'success'
+          error: 'error'
+        destroy:
+          success: 'success'
+          error: 'error'
+
+        comments:
+          create:
+            success: 'success'
+            error: 'error'
+          destroy:
+            success: 'success'
+            error: 'error'
