@@ -3,7 +3,7 @@ class Web::Posts::CommentsController < Web::Posts::ApplicationController
 
   def create
     @comment = PostCommentType.new(params[:post_comment])
-    @comment.post_id = params[:post_id]
+    @comment.post = resource_post
     if @comment.save
       f(:success)
       redirect_to post_path(resource_post)

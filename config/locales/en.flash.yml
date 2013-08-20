@@ -3,11 +3,14 @@ en:
     web:
       posts:
         create:
-          success: 'success'
-          error: 'error'
+          success: 'created'
+          error: 'error while creating'
         destroy:
-          success: 'success'
-          error: 'error'
+          success: 'successfully destroyed'
+          error: 'not destroyed'
+        update:
+          success: 'successfully updated'
+          error: 'updating error'
 
         comments:
           create:
