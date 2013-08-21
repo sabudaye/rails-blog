@@ -9,8 +9,9 @@ class Web::Posts::CommentsControllerTest < ActionController::TestCase
   end
 
   test "should create comment" do
-    assert @comment
-    assert_response :success
+    post :create, post_id: @comment.post_id, post_comment: { body: @comment.body,
+      commenter: @comment.commenter }
+    assert_response :redirect
   end
 
   test "should destroy comment" do
