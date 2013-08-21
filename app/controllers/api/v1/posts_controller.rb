@@ -1,6 +1,6 @@
 class Api::V1::PostsController < Api::V1::ApplicationController
-  http_basic_authenticate_with :name => "dhh",
-    :password => "secret",
+  http_basic_authenticate_with :name => configus.admin.login,
+    :password => configus.admin.pass,
     :except => [:index, :show]
 
   def index
@@ -15,29 +15,20 @@ class Api::V1::PostsController < Api::V1::ApplicationController
 
   def create
     @post = PostType.new(params[:post])
-    if @post.save
-      head 201
-    else
-      respond_with(@post)
-    end
+    @post.save
+
+    respond_with(@post)
   end
 
   def update
     @post = PostType.find(params[:id])
-    if @post.update_attributes(params[:post])
-      head 205
-    else
-      respond_with(@post)
-    end
+    @post.update_attributes(params[:post])
+    respond_with(@post)
   end
 
   def destroy
     @post = Post.find(params[:id])
-
-    if @post.destroy
-      head 205
-    else
-      respond_with(@post)
-    end
+    @post.destroy
+    respond_with(@post)
   end
 end

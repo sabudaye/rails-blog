@@ -3,7 +3,8 @@ require 'test_helper'
 class Api::V1::Posts::CommentsControllerTest < ActionController::TestCase
   setup do
     @request.env['HTTP_AUTHORIZATION'] =
-        ActionController::HttpAuthentication::Basic.encode_credentials('dhh', 'secret')
+      ActionController::HttpAuthentication::
+      Basic.encode_credentials(configus.admin.login, configus.admin.pass)
     @comment = create 'post/comment'
   end
 

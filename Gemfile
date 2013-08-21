@@ -47,3 +47,4 @@ gem 'twitter-bootstrap-rails'
 gem "factory_girl_rails"
 gem 'tconsole'
 gem 'coveralls', require: false
+gem 'configus'

@@ -1,5 +1,7 @@
 class Web::Posts::CommentsController < Web::Posts::ApplicationController
-  http_basic_authenticate_with :name => "dhh", :password => "secret", :only => :destroy
+  http_basic_authenticate_with :name => configus.admin.login,
+    :password => configus.admin.pass,
+    :except => [:index, :show]
 
   def create
     @comment = PostCommentType.new(params[:post_comment])

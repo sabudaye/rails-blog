@@ -1,7 +1,8 @@
 class Web::PostsController < ApplicationController
-  http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
+  http_basic_authenticate_with :name => configus.admin.login,
+    :password => configus.admin.pass,
+    :except => [:index, :show]
 
-  #TODO respond_to must be removed
   def index
     @posts = Post.all
   end
