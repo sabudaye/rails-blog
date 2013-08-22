@@ -2,7 +2,7 @@
   %h1= @post.title
 %p= @post.content
 
-- if @post.public?
+- if @post.published?
   %section#post-comments
     %legend
       Comments

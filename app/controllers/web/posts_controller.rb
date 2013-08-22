@@ -6,7 +6,7 @@ class Web::PostsController < ApplicationController
   add_breadcrumb :index, :posts_path
 
   def index
-    @posts = Post.all
+    @posts = Post.published.all
   end
 
   def show

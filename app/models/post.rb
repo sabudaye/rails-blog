@@ -6,18 +6,20 @@ class Post < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :tags
 
-  state_machine :state, :initial => :private do
-    state :private
-    state :public
+  state_machine :state, :initial => :draft do
+    state :draft
+    state :published
 
-    event :publicate do
-      transition :private => :public
+    event :publish do
+      transition :draft => :published
     end
 
-    event :privatisation do
-      transition :public => :private
+    event :unpublish do
+      transition :published => :draft
     end
   end
+
+  include PostRepository
 
   accepts_nested_attributes_for :comments
   #TODO add tags

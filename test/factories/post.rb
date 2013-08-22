@@ -4,7 +4,7 @@ FactoryGirl.define do
     content "some content"
 
     after(:create) do |t|
-      t.publicate
+      t.publish
     end
   end
 end

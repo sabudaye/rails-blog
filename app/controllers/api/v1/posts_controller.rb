@@ -4,7 +4,7 @@ class Api::V1::PostsController < Api::V1::ApplicationController
     :except => [:index, :show]
 
   def index
-    @posts = Post.all
+    @posts = Post.published.all
     respond_with(@posts)
   end
 
