@@ -3,12 +3,15 @@ class Web::PostsController < ApplicationController
     :password => configus.admin.pass,
     :except => [:index, :show]
 
+  add_breadcrumb :index, :posts_path
+
   def index
     @posts = Post.all
   end
 
   def show
     @post = Post.find(params[:id])
+    add_breadcrumb @post.id, posts_path(@post)
   end
 
   def new
@@ -17,6 +20,7 @@ class Web::PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    add_breadcrumb @post.id, posts_path(@post)
   end
 
   def create
