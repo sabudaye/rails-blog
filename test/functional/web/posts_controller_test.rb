@@ -2,9 +2,11 @@ require 'test_helper'
 
 class Web::PostsControllerTest < ActionController::TestCase
   setup do
+    #TODO move it on helper
     @request.env['HTTP_AUTHORIZATION'] =
       ActionController::HttpAuthentication::
       Basic.encode_credentials(configus.admin.login, configus.admin.pass)
+
     @post = create 'post'
     @post2 = create 'post'
   end

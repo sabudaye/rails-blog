@@ -14,7 +14,7 @@ class Api::V1::Posts::CommentsController < Api::V1::Posts::ApplicationController
     @comment.post = resource_post
     @comment.save
 
-    respond_with(@comment)
+    respond_with(@comment, location: nil)
   end
 
   def destroy
