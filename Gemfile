@@ -49,3 +49,5 @@ gem 'tconsole'
 gem 'coveralls', require: false
 gem 'configus'
 gem 'carrierwave'
+gem 'mini_magick'
+gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'

@@ -1,10 +1,12 @@
 class Post < ActiveRecord::Base
 
 
-  attr_accessible :content, :title, :state_event
- 
+  attr_accessible :content, :title, :state_event, :picture
+
   has_many :comments, :dependent => :destroy
   has_many :tags
+
+  mount_uploader :picture, PictureUploader
 
   state_machine :state, :initial => :draft do
     state :draft

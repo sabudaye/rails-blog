@@ -2,6 +2,7 @@
 %table.table.table-striped
   %tr
     %th Title
+    %th Picture
     %th Content
     %th State
     %th
@@ -10,6 +11,8 @@
   - @posts.each do |post|
     %tr
       %td= post.title
+      %td
+        %img{ src: post.picture.thumb }
       %td= post.content
       %td= post.state
       %td= link_to 'Show', post, :class => 'btn btn-mini'

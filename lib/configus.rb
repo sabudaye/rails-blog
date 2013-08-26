@@ -4,8 +4,15 @@ Configus.build Rails.env do
       login "dhh"
       pass  "secret"
     end
+
+    carrierwave do
+      storage :file
+    end
   end
 
   env :test, parent: :development do
+  end
+
+  env :production, parent: :development do
   end
 end
