@@ -146,7 +146,6 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.7)
     state_machine (1.2.0)
     subexec (0.2.3)
     tconsole (1.2.8)
@@ -191,7 +190,6 @@ DEPENDENCIES
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)
   simple_form
-  sqlite3
   state_machine
   tconsole
   therubyracer
