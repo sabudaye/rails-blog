@@ -11,6 +11,9 @@ class Web::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments.scoped.arrange(order: :created_at)
+    @comment = PostCommentType.new(parent_id: params[:parent_id])
+
     add_breadcrumb @post.id, posts_path(@post)
   end
 

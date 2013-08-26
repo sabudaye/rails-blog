@@ -1,4 +1,6 @@
 class Post::Comment < ActiveRecord::Base
   belongs_to :post
-  attr_accessible :body, :commenter
+  has_ancestry
+
+  attr_accessible :body, :commenter, :parent_id
 end

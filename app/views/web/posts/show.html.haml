@@ -1,12 +1,14 @@
 %p
   %h1= @post.title
+%p
+  %img{ src: @post.picture }
 %p= @post.content
 
 - if @post.published?
   %section#post-comments
     %legend
       Comments
-    = render partial: "web/posts/comments/comment", collection: @post.comments
+      = nested_comments @comments
     %legend
       Add a comment:
       = render "web/posts/comments/form"
