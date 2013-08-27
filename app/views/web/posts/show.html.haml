@@ -7,8 +7,9 @@
 - if @post.published?
   %section#post-comments
     %legend
-      Comments
-      = nested_comments @comments
+      .comments_list
+        Comments
+        = nested_comments @comments
     %legend
       Add a comment:
       = render "web/posts/comments/form"

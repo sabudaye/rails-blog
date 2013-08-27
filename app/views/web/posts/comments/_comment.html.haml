@@ -1,11 +1,12 @@
-%p
-  %b Commenter:
-  = comment.commenter
-%p
-  %b Comment:
-  = comment.body
-  %br
-  = link_to 'Reply', post_path(comment.post, parent_id: comment)
-  - if comment.children.any?
-    .nested_comments
-      = nested_comments(comment.children)
+%div{ id: "comment#{comment.id}" }
+  %p
+    %b Commenter:
+    = comment.commenter
+  %p
+    %b Comment:
+    = comment.body
+    %br
+    = link_to 'Reply', post_path(comment.post, parent_id: comment)
+    - if comment.children.any?
+      .nested_comments
+        = nested_comments(comment.children)
