@@ -8,6 +8,10 @@ Configus.build Rails.env do
     carrierwave do
       storage :file
     end
+
+    mailer do
+      from "noreply@blog.ru"
+    end
   end
 
   env :test, parent: :development do
