@@ -6,11 +6,11 @@ class Web::PostsController < ApplicationController
   add_breadcrumb :index, :posts_path
 
   def index
-    @posts = Post.published.all
+    @posts = Post.published.page(params[:page]).per(10).decorate
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id]).decorate
     @comments = @post.comments.scoped.arrange(order: :created_at)
     @comment = PostCommentType.new(parent_id: params[:parent_id])
 
