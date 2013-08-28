@@ -1,14 +1,13 @@
 !!! 5
 %html
   %head
-    %title
-      Blog
+    %title= t('.title')
 
     = stylesheet_link_tag "application"
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
 
-%body 
+%body
   .container
     = render_breadcrumbs
     = bootstrap_flash

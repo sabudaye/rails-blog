@@ -2,4 +2,32 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  layouts:
+    application:
+      title: "Blog"
+  home:
+    index:
+      hello: "Hello world"
+      myblog: "My Blog"
+  web:
+    posts:
+      index:
+        listing: "Posts List"
+        title: "Title"
+        picture: "Picture"
+        content: "Content"
+        state: "State"
+        show: "Show"
+        edit: "Edit"
+        destroy: "Destroy"
+        confirm: "Are You sure?"
+        new: "New Post"
+        save: "Save"
+        reply: "Reply"
+      new:
+        back: "Back"
+      show:
+        edit: "Edit Post"
+        back: "Back to Posts"
+      edit:
+        show: "Show"

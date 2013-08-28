@@ -6,7 +6,7 @@
     %b Comment:
     = comment.body
     %br
-    = link_to 'Reply', post_path(comment.post, parent_id: comment)
+    = link_to t('.reply'), post_path(comment.post, parent_id: comment)
     - if comment.children.any?
       .nested_comments
         = nested_comments(comment.children)

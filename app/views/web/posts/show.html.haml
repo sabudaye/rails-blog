@@ -14,5 +14,5 @@
       Add a comment:
       = render "web/posts/comments/form"
 
-%p= link_to 'Edit Post', edit_post_path(@post)
-%p= link_to 'Back to Posts', posts_path
+%p= link_to t('.edit'), edit_post_path(@post)
+%p= link_to t('.back'), posts_path
