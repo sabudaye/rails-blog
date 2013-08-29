@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    models:
+      post: "Post"
+      user: "User"
+
+    atributes:
+      post:
+        content: "Content"
+        title: "Title"
+        state_event: "State event"
+        picture: "Picture"
