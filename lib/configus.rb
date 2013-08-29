@@ -10,6 +10,7 @@ Configus.build Rails.env do
     end
 
     mailer do
+      host "localhost"
       from "noreply@blog.ru"
     end
   end

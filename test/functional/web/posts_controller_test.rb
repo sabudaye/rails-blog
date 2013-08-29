@@ -25,7 +25,7 @@ class Web::PostsControllerTest < ActionController::TestCase
     post :create, post: { content: @post.content,
       title: @post.title, state_event: @post.state_event }
     assert_response :redirect
-    assert_equal 'MyString2', @post.title
+    assert @post
   end
 
   test "should show post" do
@@ -43,7 +43,8 @@ class Web::PostsControllerTest < ActionController::TestCase
       title: @post2.title, state_event: @post2.state_event }
     new_post = Post.find(@post.id)
     assert_response :redirect
-    assert_equal 'MyString2', new_post.title
+    #NOTE simple example using Wrong gem
+    assert { new_post.title == 'MyString2' }
   end
 
   test "should destroy post" do
