@@ -6,7 +6,8 @@ class Web::PostsController < ApplicationController
   add_breadcrumb :index, :posts_path
 
   def index
-    @posts = Post.published.page(params[:page]).per(10).decorate
+    @search = Post.search(params[:q])
+    @posts = @search.result.page(params[:page]).per(10).decorate
   end
 
   def show

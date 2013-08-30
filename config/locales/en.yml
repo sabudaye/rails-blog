@@ -11,6 +11,9 @@ en:
       myblog: "My Blog"
   web:
     posts:
+      filter:
+        search: "Search"
+        state: "State"
       index:
         listing: "Posts List"
         title: "Title"
